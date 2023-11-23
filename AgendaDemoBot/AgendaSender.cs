@@ -19,7 +19,7 @@ namespace AgendaDemoBot
             while (!stoppingToken.IsCancellationRequested)
             {
                 var now = DateTime.Now;
-                if (now.Hour == 17 && now.Minute == 10 && now.Second == 0)
+                if (now.Hour == 17 && now.Minute == 35 && now.Second == 0)
                 {
                     var users = await AgendaTaskDataAccess.GetAllUsers();
                     foreach (var user in users.Where(x => x.IsActive == true))
