@@ -1,10 +1,5 @@
 ﻿using AgendaDemoBot.Data;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Telegram.Bot;
 
 namespace AgendaDemoBot
@@ -21,13 +16,13 @@ namespace AgendaDemoBot
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             await Task.Delay(1000);
-            while(!stoppingToken.IsCancellationRequested)
+            while (!stoppingToken.IsCancellationRequested)
             {
                 var now = DateTime.Now;
-                if(now.Hour == 17 && now.Minute == 10 && now.Second == 0)
+                if (now.Hour == 17 && now.Minute == 10 && now.Second == 0)
                 {
                     var users = await AgendaTaskDataAccess.GetAllUsers();
-                    foreach (var user in users.Where(x=>x.IsActive==true))
+                    foreach (var user in users.Where(x => x.IsActive == true))
                     {
                         foreach (var task in user.Tasks)
                         {
